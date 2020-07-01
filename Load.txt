@@ -1,0 +1,203 @@
+{"configuration": [{
+        "ecm": {
+            "config_version": 25
+        },
+        "firewall": {
+            "remote_admin": {
+                "enabled": true,
+                "secure_only": true
+            },
+            "ssh_admin": {
+                "remote_access": true
+            },
+            "wan_ping": true
+        },
+        "overlay": {
+            "client": {
+                "mastercontroller": "mc-overlay.cradlepointecm.com"
+            },
+            "conf": {
+                "0": {
+                    "key": "*",
+                    "value": "prod"
+                }
+            }
+        },
+        "security": {
+            "zfw": {
+                "forwardings": {
+                    "4": {
+                        "_id_": "00000004-efad-38ad-90e5-397179933776",
+                        "dst_zone_id": "00000003-695c-3d87-95cb-d0ee2029d0b5",
+                        "enabled": true,
+                        "filter_policy_id": "00000000-77db-3b20-980e-2de482869073",
+                        "src_zone_id": "00000005-68fe-3bc1-8ba7-30e053ab480d"
+                    },
+                    "5": {
+                        "_id_": "00000005-efad-38ad-90e5-397179933776",
+                        "dst_zone_id": "00000005-68fe-3bc1-8ba7-30e053ab480d",
+                        "enabled": true,
+                        "filter_policy_id": "00000000-77db-3b20-980e-2de482869073",
+                        "src_zone_id": "00000003-695c-3d87-95cb-d0ee2029d0b5"
+                    },
+                    "6": {
+                        "_id_": "00000006-efad-38ad-90e5-397179933776",
+                        "dst_zone_id": "00000005-68fe-3bc1-8ba7-30e053ab480d",
+                        "enabled": true,
+                        "filter_policy_id": "00000000-77db-3b20-980e-2de482869073",
+                        "src_zone_id": "00000001-695c-3d87-95cb-d0ee2029d0b5"
+                    },
+                    "7": {
+                        "_id_": "00000007-efad-38ad-90e5-397179933776",
+                        "dst_zone_id": "00000001-695c-3d87-95cb-d0ee2029d0b5",
+                        "enabled": true,
+                        "filter_policy_id": "00000000-77db-3b20-980e-2de482869073",
+                        "src_zone_id": "00000005-68fe-3bc1-8ba7-30e053ab480d"
+                    }
+                },
+                "zones": {
+                    "5": {
+                        "_id_": "00000005-68fe-3bc1-8ba7-30e053ab480d",
+                        "devices": [
+                            {
+                                "trigger_field": "config_id",
+                                "trigger_group": "gre",
+                                "trigger_neg": false,
+                                "trigger_predicate": "is",
+                                "trigger_value": ""
+                            },
+                            {
+                                "trigger_field": "config_id",
+                                "trigger_group": "vti",
+                                "trigger_neg": false,
+                                "trigger_predicate": "is",
+                                "trigger_value": ""
+                            },
+                            {
+                                "trigger_field": "config_id",
+                                "trigger_group": "openvpn",
+                                "trigger_neg": false,
+                                "trigger_predicate": "is",
+                                "trigger_value": ""
+                            }
+                        ],
+                        "name": "VPN",
+                        "priority": 10
+                    }
+                }
+            }
+        },
+        "system": {
+            "pci_dss": false,
+            "ui_activated": true,
+            "users": {
+                "0": {
+                    "password": "*"
+                }
+            }
+        },
+        "vpn": {
+            "enabled": true,
+            "tunnels": {
+                "0": {
+                    "_id_": "00000000-bb2b-3f16-b8bd-c1264651d390",
+                    "anonymous": false,
+                    "asn1dn": false,
+                    "auth_method": "pre_shared_key",
+                    "dpd_action_restart": false,
+                    "dpd_conn_idle_time": 30,
+                    "dpd_enabled": true,
+                    "dpd_max_requests": 5,
+                    "dpd_request_freq": 15,
+                    "enabled": true,
+                    "exception_route_mode": "route",
+                    "fail_back_period": 10,
+                    "fail_back_to": "",
+                    "fail_over_to": "",
+                    "force_natt": false,
+                    "ike1_dh_group": "5",
+                    "ike1_encryption": "aes 128,aes 256",
+                    "ike1_exchange_mode": "main",
+                    "ike1_hash": "sha256,sha384,sha512",
+                    "ike1_key_lifetime": 28800,
+                    "ike2_dh_group": "5",
+                    "ike2_encryption": "aes 128,aes 256",
+                    "ike2_hash": "hmac_sha256,hmac_sha384,hmac_sha512",
+                    "ike2_key_lifetime": 3600,
+                    "ike2_pfs": true,
+                    "ike2_split_ts": false,
+                    "ike_version": 1,
+                    "initiator_mode": "always",
+                    "interface_ip_mode": "local",
+                    "interface_ips": [
+                        {},
+                        {}
+                    ],
+                    "interface_nat": false,
+                    "ipverify": [
+                        {
+                            "change_tunnel_state": "connect",
+                            "on_pass": false,
+                            "test_id": ""
+                        },
+                        {
+                            "change_tunnel_state": "connect",
+                            "on_pass": false,
+                            "test_id": ""
+                        }
+                    ],
+                    "local_identity": "",
+                    "local_identity_type": "auto",
+                    "local_network": [
+                        {
+                            "exclude": false,
+                            "ip_network": "192.168.0.1/24",
+                            "nat_to": "",
+                            "port": null
+                        }
+                    ],
+                    "mobike": true,
+                    "mode": "tunnel",
+                    "name": "toE300",
+                    "nat_traversal": true,
+                    "no_dhcp": false,
+                    "pools": [
+                        {},
+                        {}
+                    ],
+                    "preshared_key": "*",
+                    "protocol": "any",
+                    "remote_gateway": "10.11.11.180",
+                    "remote_identity": "",
+                    "remote_identity_type": "auto",
+                    "remote_network": [
+                        {
+                            "exclude": false,
+                            "ip_network": "192.168.5.1/24",
+                            "port": null
+                        }
+                    ],
+                    "remote_port": 500,
+                    "responder_mode": false,
+                    "revocation": "relaxed",
+                    "router_services": false,
+                    "unique": "replace",
+                    "vti_routes": [],
+                    "vti_ts": false,
+                    "wan_trigger_field": "uid",
+                    "wan_trigger_neg": false,
+                    "wan_trigger_predicate": "is"
+                }
+            }
+        },
+        "wlan": {
+            "radio": {
+                "0": {
+                    "enabled": false
+                },
+                "1": {
+                    "enabled": false
+                }
+            }
+        }
+    },[]]}
