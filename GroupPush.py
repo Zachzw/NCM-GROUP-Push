@@ -5,6 +5,8 @@ import logging
 
 #Import API keys from CSV and assigns them variables
 
+end = 'Press Enter to exit'
+
 def main():
 
   with open('API_keys.csv', 'r') as f:
@@ -30,36 +32,34 @@ def main():
   NCMendpoint = f'https://www.cradlepointecm.com/api/v2/groups/{group_ID}/' 
   print(NCMendpoint)
 
-  # Pulls payload from .txt and assigns it a variable.
+  # Imports the payload from Load.txt and verifys it's in a valid JSON format
 
   try:
     with open('Load.txt', 'r') as f:
       payload=f.read()
       payload_json = json.loads(payload) 
   except: 
-    print('Invalid JSON')      
+    print(f'Invalid JSON, {end}')     
+    input()     
   else:
     print('Valid JSON')        
         
-    
+    # Pulls payload from .txt and assigns it a variable.
+
   r = requests.put(NCMendpoint,json=payload_json,headers =headers)
   r.status_code
-  print(f'Status Code: {r.status_code}')
-  
+ 
+  # Prints status codes from the API call
  
   if r.status_code == 202:
-    print('Successfully PUT config to NCM')
+    print(f'Status Code: {r.status_code} Successfully PUT config to NCM')
   elif r.status_code == 401:
-    print('Authorization Failed: Verify your API keys')
+    print(f'Status Code: {r.status_code} Authorization Failed: Verify your API keys')
   elif r.status_code == 403:
-    print('Access Forbidden: Verify your Group ID')
-  elif r.status_code == 400:
-    file = open("JSON_Error.txt","w")
-    file.write(r.status_code)  
-    file.close()
-  
+    print(f'Status Code: {r.status_code} Verify your Group ID') 
+      
 
-  print('Press Enter to close')
+  print(end)
   input()
 
 
