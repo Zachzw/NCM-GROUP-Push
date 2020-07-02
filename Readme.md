@@ -6,6 +6,9 @@
 
 2. Python library [virtualenv](https://virtualenv.pypa.io/en/stable/) installed on machine
 
+# Installation (Automatic)
+
+1. Run Install_Env.ps1
 
 # Installation (Manual) in Powershell or CMD window
 
@@ -20,10 +23,6 @@
 1. Install python requests library
 
         pip3 install requests
-
-# Installation (Automatic)
-
-1. Run Install_Env.ps1
 
 
 # User Guide
@@ -42,10 +41,6 @@
         f6afak38d-d67a-4b66-b958-a2435299992d21
         10c53659jgkafoob4rsaedfffeb7sc00bs00995
 
-1. Set your NCM Group ID in the `Group_ID.txt` file
-
-        193340
-
 1. Put Configuration payload in Load.txt with the JSON Wrapper
 
     ### NCM JSON Wrapper
@@ -61,9 +56,9 @@
         
         python .\GroupPush.py
 
-1. OR run the `run.ps1` to activate and run the Group_ID_Prompt.py & GroupPush.py files
+1. OR run the `run.ps1` to activate and run the GroupPush.py file
 
-1. Response 202  is a successful PUT
+
 
 
 
