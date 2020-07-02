@@ -57,9 +57,9 @@ def main():
   if r.status_code == 202:
     print(f'Status Code: {r.status_code}\nSuccessfully PUT config to NCM')
   elif r.status_code == 401:
-    print(f'Status Code: {r.status_code}\nAuthorization Failed: Verify your API keys')     
+    print(f'Status Code: {r.status_code}\n***Authorization Failed: Verify your API keys***')     
   elif r.status_code == 403:
-    print(f'Status Code: {r.status_code}\nVerify your Group ID') 
+    print(f'Status Code: {r.status_code}\n***Verify your Group ID***') 
       
 
   end_prompt()
