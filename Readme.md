@@ -48,14 +48,6 @@
         "configuration": [{<DATA GOES HERE>},[]]}
 
 
-1. Run the script (manually)
-
-        cd %USERPROFILE%\~\Python_NCM_Group_Push
-
-        ./venv/Scripts/activate
-        
-        python .\GroupPush.py
-
 1. OR run the `run.ps1` to activate and run the GroupPush.py file
 
 
