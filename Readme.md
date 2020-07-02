@@ -48,7 +48,7 @@
         "configuration": [{<DATA GOES HERE>},[]]}
 
 
-1. OR run the `run.ps1` to activate and run the GroupPush.py file
+1. Run the `run.ps1` to activate and run the GroupPush.py file
 
 
 
