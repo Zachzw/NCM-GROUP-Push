@@ -42,7 +42,7 @@ def main():
       payload=f.read()
       payload_json = json.loads(payload) 
   except: 
-    print('Invalid JSON file')     
+    print('***Invalid JSON file***')     
     end_prompt()    
   else:
     print('Valid JSON file')        
@@ -60,6 +60,8 @@ def main():
     print(f'Status Code: {r.status_code}\n***Authorization Failed: Verify your API keys***')     
   elif r.status_code == 403:
     print(f'Status Code: {r.status_code}\n***Verify your Group ID***') 
+  else:
+    print(f'Status Code: {r.status_code}')
       
 
   end_prompt()
