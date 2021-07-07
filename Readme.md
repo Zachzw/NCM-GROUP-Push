@@ -45,7 +45,7 @@
 
     ### NCM JSON Wrapper
 
-        "configuration": [{<DATA GOES HERE>},[]]}
+        {"configuration": [{},[]]}
 
 
 1. Run the `run.ps1` to activate and run the GroupPush.py file
